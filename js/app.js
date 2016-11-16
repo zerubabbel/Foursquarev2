@@ -1,7 +1,7 @@
 // this function takes the question object returned by the StackOverflow request
 // and returns new result to be appended to DOM
 
-var showQuestion2 = function(question){
+var showPlace = function(question){
 	//clone our result template code
 	var result = $('.templates .place').clone();
 	var placeElem = result.find('.place-text a');
@@ -47,7 +47,7 @@ function getRestaurant(type, city){
 	.done(function(result){ //this waits for the ajax to return with a succesful promise object
 		console.log(result);
 		$.each(result.response, function(index, value){
-			var question = showQuestion2(value);
+			var question = showPlace(value);
 			$('.results').append(question);
 		});
 		
