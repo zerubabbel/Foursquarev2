@@ -5,8 +5,11 @@ var showPlace = function(question){
 	//clone our result template code
 	var result = $('.templates .place').clone();
 	var placeElem = result.find('.place-text a');
-	placeElem.attr('href', question.venues.url);
-	placeElem.text(question.venues.name);
+	placeElem.attr('href', question.url);
+	placeElem.text(question.name);
+	
+	var addressElem = result.find ('.address-text');
+	addressElem.text(question.location.address + " " +question.location.city + ", " + question.location.state);
 	return result; 
 
 };
@@ -46,7 +49,7 @@ function getRestaurant(type, city){
 
 	.done(function(result){ //this waits for the ajax to return with a succesful promise object
 		console.log(result);
-		$.each(result.response, function(index, value){
+		$.each(result.response.venues, function(index, value){
 			var question = showPlace(value);
 			$('.results').append(question);
 		});
