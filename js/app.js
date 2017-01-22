@@ -1,8 +1,6 @@
-// this function takes the question object returned by the StackOverflow request
-// and returns new result to be appended to DOM
+
 
 var showPlace = function(question){
-	//clone our result template code
 	var result = $('.templates .place').clone();
 	var placeElem = result.find('.place-text a');
 	placeElem.attr('href', question.url);
@@ -13,19 +11,6 @@ var showPlace = function(question){
 	return result; 
 
 };
-
-
-
-
-
-// this function takes the results object from StackOverflow
-// and returns the number of results and tags to be appended to DOM
-
-// takes error string and turns it into displayable DOM element
-
-
-// takes a string of semi-colon separated tags to be searched
-// for on StackOverflow
 
 
 function getRestaurant(type, city){
@@ -42,12 +27,12 @@ function getRestaurant(type, city){
 	$.ajax({
 		url: 'https://api.foursquare.com/v2/venues/search',
 		data: request, 
-		dataType: "jsonp",//use jsonp to avoid cross origin issues
+		dataType: "jsonp",
 		type: "GET"
 
 	})
 
-	.done(function(result){ //this waits for the ajax to return with a succesful promise object
+	.done(function(result){ 
 		console.log(result);
 		$.each(result.response.venues, function(index, value){
 			var question = showPlace(value);
