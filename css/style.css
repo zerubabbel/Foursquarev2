@@ -14,13 +14,14 @@
 .foursquare-image {
 	background: url('../img/foursquarelogo.png') no-repeat center center;
 	width: 200px;
-	height: 200px;
+	height: 250px;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	margin-right: 1em;
 	border-radius: 5px;
+	margin-bottom: 5px; 
 }
 
 .intro {
@@ -45,5 +46,9 @@
 .error {
 	background-color: #F78181;
 	padding: 1em;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
 }
 
